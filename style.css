@@ -1,0 +1,223 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Background Video */
+#bg-video {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Overlay Section */
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  min-height: 100vh;
+  color: white;
+  padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+.nav-links a:hover {
+  color: #ffcc00;
+}
+
+/* Hero Text */
+.hero-text {
+  text-align: center;
+  padding: 120px 20px 50px;
+}
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+.btn {
+  padding: 12px 24px;
+  background: #ff5733;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.btn:hover {
+  background: #c70039;
+}
+.glow-btn {
+  box-shadow: 0 0 20px rgba(255, 87, 51, 0.7);
+  animation: pulse 1.5s infinite;
+}
+
+/* Cards Section */
+.cards-section {
+  padding: 40px 20px;
+  text-align: center;
+  color: #000;
+  text-shadow: black;
+}
+.cards-container {
+  display: flex;
+  color:black;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 20px;
+  width: 250px;
+  color: black;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+.card-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #ffc107;
+  color: black;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+.card-btn:hover {
+  background: #e0a800;
+}
+
+/* Booking Form */
+.booking-form-section {
+  text-align: center;
+  padding: 40px;
+}
+.booking-form {
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+input, select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+/* Card Image */
+.card img {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+/* Card container for flex wrap */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+/* Card styling */
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  width: 250px;
+  text-align: center;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, background 0.3s;
+}
+.card:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Button inside cards */
+.card-btn {
+  margin-top: 10px;
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ffcc00;
+  color: black;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+.card-btn:hover {
+  background: #f3b500;
+  color: #000;
+}
+p{
+color: #000;
+}
+h3{
+    color: #000;
+}
+#places-list {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+#places-list li {
+  color: black;
+  font-size: 1rem;
+  margin-bottom: 6px;
+  list-style-type: "📍 ";
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(255, 87, 51, 0.7); }
+  50% { box-shadow: 0 0 30px rgba(255, 87, 51, 1); }
+}
+.fade-in { animation: fadeIn 1s ease; }
+.slide-up { animation: slideUp 1s ease; }
+.zoom-in { animation: zoomIn 1s ease; }
+.delay { animation-delay: 0.5s; }

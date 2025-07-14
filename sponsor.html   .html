@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sponsor – WanderWise</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">🌍 WanderWise</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="guides.html">Guides</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="sponsor.html" class="active">Sponsor</a></li>
+      <li><a href="booking.html">Book Now</a></li>
+    </ul>
+  </nav>
+
+  <section class="booking-form-section">
+    <h2 class="fade-in">Become a Sponsor</h2>
+    <form class="booking-form" onsubmit="return sponsorSubmit()">
+      <input type="text" placeholder="Company Name" required />
+      <input type="email" placeholder="Contact Email" required />
+      <textarea placeholder="Tell us why you want to sponsor WanderWise" rows="4" required></textarea>
+      <button type="submit" class="btn">Submit Sponsor Request</button>
+    </form>
+  </section>
+
+  <script>
+    function sponsorSubmit() {
+      alert("🎉 Thank you for your interest in sponsoring us! We'll reach out to you soon.");
+      return false;
+    }
+  </script>
+</body>
+</html>

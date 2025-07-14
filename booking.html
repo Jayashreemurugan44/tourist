@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Booking – WanderWise</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+     <video autoplay muted loop id="bg-video">
+    <source src="video/travel.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo">🌍 WanderWise</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="guides.html">Guides</a></li>
+     
+      <li><a href="sponsor.html">Sponsor</a></li>
+      <li><a href="booking.html" class="active">Book Now</a></li>
+    </ul>
+  </nav>
+
+  <section class="booking-form-section">
+    <h2 class="fade-in">Book Your Adventure</h2>
+    <form class="booking-form" onsubmit="return redirectToPlan()">
+      <input type="number" id="adults" placeholder="Number of Adults" required min="1" />
+<input type="number" id="children" placeholder="Number of Children" required min="0" />
+
+<input type="text" id="cost" placeholder="Total Cost (₹)" readonly />
+
+      <input type="text" placeholder="Your Name" required />
+      <input type="tel" placeholder="Phone Number" required />
+      <select required id="package">
+        <option disabled selected>Select Package</option>
+        <option value="Manali">Manali Escape</option>
+        <option value="Kerala">Kerala Backwaters</option>
+        <option value="Goa">Goa Beaches</option>
+        <option value="Rajasthan">Royal Rajasthan</option>
+        <option value="Sikkim">Sikkim Serenity</option>
+        <option value="Andaman">Andaman Islands</option>
+      </select>
+      <select required id="guide">
+        <option disabled selected>Select Guide</option>
+        <option value="Rahul">Rahul Sharma</option>
+        <option value="Anjali">Anjali Menon</option>
+        <option value="Arjun">Arjun Das</option>
+        <option value="Priya">Priya Kapoor</option>
+        <option value="Sameer">Sameer Joshi</option>
+      </select>
+      <button type="submit" class="btn">Confirm Booking</button>
+    </form>
+  </section>
+
+  <script>
+    const packagePrices = {
+  Manali: 4000,
+  Kerala: 4500,
+  Goa: 4800,
+  Rajasthan: 5000,
+  Sikkim: 5500,
+  Andaman: 6000
+};
+
+// Update cost live when user selects package or changes count
+document.getElementById("package").addEventListener("change", calculateCost);
+document.getElementById("adults").addEventListener("input", calculateCost);
+document.getElementById("children").addEventListener("input", calculateCost);
+
+function calculateCost() {
+  const pkg = document.getElementById("package").value;
+  const adults = parseInt(document.getElementById("adults").value) || 0;
+  const children = parseInt(document.getElementById("children").value) || 0;
+
+  if (!pkg || adults < 0 || children < 0) {
+    document.getElementById("cost").value = "";
+    return;
+  }
+
+  const price = packagePrices[pkg];
+  const total = (adults + children * 0.5) * price;
+  document.getElementById("cost").value = "₹" + total.toFixed(2);
+}
+
+    function redirectToPlan() {
+      const packageName = document.getElementById("package").value;
+      const guideName = document.getElementById("guide").value;
+      const adults = document.getElementById("adults").value;
+const children = document.getElementById("children").value;
+const cost = document.getElementById("cost").value;
+
+localStorage.setItem("adults", adults);
+localStorage.setItem("children", children);
+localStorage.setItem("totalCost", cost);
+
+
+      // Save selection in localStorage
+      localStorage.setItem("selectedPackage", packageName);
+      localStorage.setItem("selectedGuide", guideName);
+
+
+
+      // Redirect to travel plan
+      window.location.href = "plan.html";
+      return false;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Travel Plan – WanderWise</title>
+  <style>
+    
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: #000;
+    }
+    .plan-box {
+  background: rgba(0, 0, 0, 0.5); /* Darker glass */
+  color: white;
+}
+
+
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .overlay {
+    
+      min-height: 100vh;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .plan-box {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 700px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    p{
+      color: #000;
+    }
+    #bg-video {
+  filter: brightness(0.4); /* Darkens bright videos */
+}
+
+    ul#places-list li {
+      color: black;
+      list-style-type: "📍 ";
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+    h2{
+      color:#000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background video -->
+  <video autoplay muted loop id="bg-video">
+    <source id="video-source" src="" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="overlay">
+    <div class="plan-box">
+      <h2>Your Travel Plan</h2>
+      <p><strong>Destination:</strong> <span id="place"></span></p>
+      <p><strong>Tour Guide:</strong> <span id="guide"></span></p>
+      <p><strong>🍽️ Food:</strong> Breakfast, Lunch, Dinner – Veg/Non-Veg options available.</p>
+      <p><strong>🏨 Accommodation:</strong> 3-star hotel, AC rooms, Free Wi-Fi</p>
+      <p><strong>📍 Places Covered:</strong></p>
+      <p><strong>👨 Adults:</strong> <span id="adults"></span></p>
+<p><strong>🧒 Children:</strong> <span id="children"></span></p>
+<p><strong>💰 Total Cost:</strong> <span id="total"></span></p>
+
+      <ul id="places-list"></ul>
+    </div>
+  </div>
+
+  <script>
+    const pkg = localStorage.getItem("selectedPackage");
+    const guide = localStorage.getItem("selectedGuide");
+
+    // Show package and guide in text
+    document.getElementById("place").textContent = pkg;
+    document.getElementById("guide").textContent = guide;
+    document.getElementById("adults").textContent = localStorage.getItem("adults");
+document.getElementById("children").textContent = localStorage.getItem("children");
+document.getElementById("total").textContent = localStorage.getItem("totalCost");
+
+
+    // Show different background videos for each place
+    const videoMap = {
+      Manali: "video/manali.mp4",
+      Kerala: "video/kerala.mp4",
+      Goa: "video/goa.mp4",
+      Rajasthan: "video/rajasthan.mp4",
+      Sikkim: "video/sikim.mp4",
+      Andaman: "video/andaman.mp4"
+    };
+
+    document.getElementById("video-source").src = videoMap[pkg] || "video/travel.mp4";
+    document.getElementById("bg-video").load(); // reloads video after changing source
+
+    // Place list for each package
+    const places = {
+      Manali: ["Rohtang Pass", "Solang Valley", "Hadimba Temple"],
+      Kerala: ["Alleppey", "Munnar", "Kochi"],
+      Goa: ["Baga Beach", "Dudhsagar Falls", "Fort Aguada"],
+      Rajasthan: ["Jaipur", "Jodhpur", "Udaipur"],
+      Sikkim: ["Gangtok", "Tsomgo Lake", "Nathula Pass"],
+      Andaman: ["Havelock Island", "Radhanagar Beach", "Cellular Jail"]
+    };
+
+    const ul = document.getElementById("places-list");
+    (places[pkg] || []).forEach(place => {
+      const li = document.createElement("li");
+      li.textContent = place;
+      ul.appendChild(li);
+    });
+  </script>
+</body>
+</html>

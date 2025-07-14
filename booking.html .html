@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Booking – WanderWise</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">🌍 WanderWise</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="guides.html">Guides</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="sponsor.html">Sponsor</a></li>
+      <li><a href="booking.html" class="active">Book Now</a></li>
+    </ul>
+  </nav>
+
+  <section class="booking-form-section">
+    <h2 class="fade-in">Book Your Adventure</h2>
+    <form class="booking-form" onsubmit="return confirmBooking()">
+      <input type="text" placeholder="Your Name" required />
+      <input type="tel" placeholder="Phone Number" required />
+      <select required>
+        <option disabled selected>Select Package</option>
+        <option>Manali Escape</option>
+        <option>Kerala Backwaters</option>
+      </select>
+      <select required>
+        <option disabled selected>Select Guide</option>
+        <option>Rahul Sharma</option>
+        <option>Anjali Menon</option>
+      </select>
+      <button type="submit" class="btn">Confirm Booking</button>
+    </form>
+  </section>
+
+  <script>
+    function confirmBooking() {
+      alert("✅ Booking Confirmed! You'll receive a message shortly.");
+      return false;
+    }
+  </script>
+</body>
+</html>
