@@ -100,12 +100,12 @@ document.getElementById("total").textContent = localStorage.getItem("totalCost")
 
     // Show different background videos for each place
     const videoMap = {
-      Manali: "video/manali.mp4",
-      Kerala: "video/kerala.mp4",
-      Goa: "video/goa.mp4",
-      Rajasthan: "video/rajasthan.mp4",
-      Sikkim: "video/sikim.mp4",
-      Andaman: "video/andaman.mp4"
+      Manali: "manali.mp4",
+      Kerala: "kerala.mp4",
+      Goa: "goa.mp4",
+      Rajasthan: "rajasthan.mp4",
+      Sikkim: "sikim.mp4",
+      Andaman: "andaman.mp4"
     };
 
     document.getElementById("video-source").src = videoMap[pkg] || "video/travel.mp4";
